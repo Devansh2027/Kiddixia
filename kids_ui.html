@@ -1,158 +1,137 @@
-import React, { useState } from 'react';
-import { Book, Gamepad, Music, Camera, Calculator, Headphones, BookOpen, Settings, X, Shuffle, Search, Globe, PenTool, Clock } from 'lucide-react';
-
-const KiddixiaUI = () => {
-  const [currentSection, setCurrentSection] = useState('main');
-  const [currentLesson, setCurrentLesson] = useState(null);
-
-  const navigateTo = (section) => {
-    setCurrentSection(section);
-    setCurrentLesson(null);
-  };
-
-  const startLesson = (lesson) => {
-    setCurrentLesson(lesson);
-  };
-
-  return (
-    <div className="h-screen w-full bg-gradient-to-b from-blue-200 to-purple-200 p-4 flex flex-col relative">
-      <header className="text-center mb-4">
-        <h1 className="text-3xl font-bold text-purple-600">Kiddixia</h1>
-      </header>
-      
-      {currentSection === 'main' && (
-        <>
-          <div className="flex-grow grid grid-cols-4 gap-4 mb-4">
-            <AppIcon icon={<Book color="#10b981" />} label="Learn" onClick={() => navigateTo('learn')} />
-            <AppIcon icon={<Gamepad color="#3b82f6" />} label="Games" onClick={() => navigateTo('games')} />
-            <AppIcon icon={<Music color="#8b5cf6" />} label="Music" />
-            <AppIcon icon={<Camera color="#ef4444" />} label="Camera" />
-            <AppIcon icon={<Calculator color="#6366f1" />} label="Math" />
-            <AppIcon icon={<BookOpen color="#f59e0b" />} label="Library" />
-            <AppIcon icon={<Headphones color="#ec4899" />} label="Audiobooks" />
-            <AppIcon icon={<Settings color="#64748b" />} label="Settings" />
-          </div>
-          
-          <footer className="bg-white rounded-t-3xl p-4 shadow-lg">
-            <div className="flex justify-around">
-              <AppIcon icon={<Book size={32} color="#10b981" />} label="Learn" onClick={() => navigateTo('learn')} />
-              <AppIcon icon={<Gamepad size={32} color="#3b82f6" />} label="Play" onClick={() => navigateTo('games')} />
-              <AppIcon icon={<BookOpen size={32} color="#f59e0b" />} label="Read" />
-              <AppIcon icon={<Headphones size={32} color="#ec4899" />} label="Listen" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiddixia</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+        }
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to bottom, #bfdbfe, #e9d5ff);
+            padding: 1rem;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            color: #9333ea;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+        .app-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .app-icon:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        .app-icon span {
+            margin-top: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        footer {
+            background-color: white;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+            padding: 1rem;
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .footer-icons {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kiddixia</h1>
+        </header>
+        
+        <div class="app-grid">
+            <div class="app-icon">
+                <i data-lucide="book" style="color: #10b981;"></i>
+                <span>Learn</span>
             </div>
-          </footer>
-        </>
-      )}
-
-      {currentSection === 'games' && (
-        <GameSection onClose={() => navigateTo('main')} />
-      )}
-
-      {currentSection === 'learn' && (
-        <LearnSection onClose={() => navigateTo('main')} onSelectLesson={startLesson} />
-      )}
-
-      {currentLesson && (
-        <LessonScreen lesson={currentLesson} onClose={() => setCurrentLesson(null)} />
-      )}
+            <div class="app-icon">
+                <i data-lucide="gamepad-2" style="color: #3b82f6;"></i>
+                <span>Games</span>
+            </div>
+            <div class="app-icon">
+                <i data-lucide="music" style="color: #8b5cf6;"></i>
+                <span>Music</span>
+            </div>
+            <div class="app-icon">
+                <i data-lucide="camera" style="color: #ef4444;"></i>
+                <span>Camera</span>
+            </div>
+            <div class="app-icon">
+                <i data-lucide="calculator" style="color: #6366f1;"></i>
+                <span>Math</span>
+            </div>
+            <div class="app-icon">
+                <i data-lucide="book-open" style="color: #f59e0b;"></i>
+                <span>Library</span>
+            </div>
+            <div class="app-icon">
+                <i data-lucide="headphones" style="color: #ec4899;"></i>
+                <span>Audiobooks</span>
+            </div>
+            <div class="app-icon">
+                <i data-lucide="settings" style="color: #64748b;"></i>
+                <span>Settings</span>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-icons">
+                <div class="app-icon">
+                    <i data-lucide="book" style="color: #10b981;"></i>
+                    <span>Learn</span>
+                </div>
+                <div class="app-icon">
+                    <i data-lucide="gamepad-2" style="color: #3b82f6;"></i>
+                    <span>Play</span>
+                </div>
+                <div class="app-icon">
+                    <i data-lucide="book-open" style="color: #f59e0b;"></i>
+                    <span>Read</span>
+                </div>
+                <div class="app-icon">
+                    <i data-lucide="headphones" style="color: #ec4899;"></i>
+                    <span>Listen</span>
+                </div>
+            </div>
+        </footer>
     </div>
-  );
-};
 
-const AppIcon = ({ icon, label, onClick }) => (
-  <button 
-    className="flex flex-col items-center justify-center p-2 rounded-xl hover:bg-white/30 transition-all duration-200"
-    onClick={onClick}
-  >
-    <div className="mb-1">{icon}</div>
-    <span className="text-xs font-medium text-gray-700">{label}</span>
-  </button>
-);
-
-const GameSection = ({ onClose }) => (
-  <div className="absolute inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
-    <h2 className="text-3xl font-bold text-purple-600 mb-8">Choose a Game!</h2>
-    <div className="grid grid-cols-2 gap-6">
-      <GameButton label="Snake and Ladder" color="bg-green-400" icon={<Shuffle size={48} />} />
-      <GameButton label="Find the Person" color="bg-yellow-400" icon={<Search size={48} />} />
-      <GameButton label="Puzzle" color="bg-pink-400" icon={<Gamepad size={48} />} />
-      <GameButton label="Memory" color="bg-blue-400" icon={<BookOpen size={48} />} />
-    </div>
-    <CloseButton onClose={onClose} />
-  </div>
-);
-
-const LearnSection = ({ onClose, onSelectLesson }) => (
-  <div className="absolute inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
-    <h2 className="text-3xl font-bold text-purple-600 mb-8">What do you want to learn?</h2>
-    <div className="grid grid-cols-2 gap-6">
-      <LessonButton label="Math" color="bg-blue-400" icon={<Calculator size={48} />} onClick={() => onSelectLesson('math')} />
-      <LessonButton label="English" color="bg-green-400" icon={<PenTool size={48} />} onClick={() => onSelectLesson('english')} />
-      <LessonButton label="History" color="bg-yellow-400" icon={<Clock size={48} />} onClick={() => onSelectLesson('history')} />
-      <LessonButton label="Geography" color="bg-pink-400" icon={<Globe size={48} />} onClick={() => onSelectLesson('geography')} />
-    </div>
-    <CloseButton onClose={onClose} />
-  </div>
-);
-
-const GameButton = ({ label, color, icon }) => (
-  <button 
-    className={`${color} hover:opacity-90 text-white font-bold py-6 px-4 rounded-lg shadow-lg flex flex-col items-center justify-center transition-all duration-200 transform hover:scale-105 w-40 h-40`}
-  >
-    {icon}
-    <span className="mt-2 text-xl text-center">{label}</span>
-  </button>
-);
-
-const LessonButton = ({ label, color, icon, onClick }) => (
-  <button 
-    className={`${color} hover:opacity-90 text-white font-bold py-6 px-4 rounded-lg shadow-lg flex flex-col items-center justify-center transition-all duration-200 transform hover:scale-105 w-40 h-40`}
-    onClick={onClick}
-  >
-    {icon}
-    <span className="mt-2 text-xl text-center">{label}</span>
-  </button>
-);
-
-const CloseButton = ({ onClose }) => (
-  <button 
-    onClick={onClose}
-    className="mt-8 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full flex items-center"
-  >
-    <X size={24} className="mr-2" />
-    Close
-  </button>
-);
-
-const LessonScreen = ({ lesson, onClose }) => {
-  const lessonContent = {
-    math: {
-      title: "Math Lesson",
-      content: "Let's learn about addition and subtraction!",
-    },
-    english: {
-      title: "English Lesson",
-      content: "Today we'll explore the alphabet and simple words.",
-    },
-    history: {
-      title: "History Lesson",
-      content: "Discover ancient civilizations and their fascinating stories.",
-    },
-    geography: {
-      title: "Geography Lesson",
-      content: "Let's explore continents, countries, and natural wonders!",
-    },
-  };
-
-  const { title, content } = lessonContent[lesson];
-
-  return (
-    <div className="absolute inset-0 bg-white flex flex-col items-center justify-center p-8">
-      <h2 className="text-3xl font-bold text-purple-600 mb-8">{title}</h2>
-      <div className="text-xl mb-8 text-center">{content}</div>
-      <CloseButton onClose={onClose} />
-    </div>
-  );
-};
-
-export default KiddixiaUI;
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
