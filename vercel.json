@@ -2,12 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "kid_ui.js",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
@@ -17,7 +13,7 @@
     },
     {
       "src": "/child",
-      "dest": "/kid_ui.js"
+      "dest": "/child" // Adjust this if needed based on your routing
     }
   ]
 }
