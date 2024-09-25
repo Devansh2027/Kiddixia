@@ -1,14 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import KidUI from './kid_ui'; // Import your child component
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import KiddixiaUI from './kid_ui'; // Ensure the correct filename is used
 
 function App() {
   return (
     <Router>
-      <Switch>
-       
-        <Route path="/child" component={KidUI} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<KiddixiaUI />} />
+      </Routes>
     </Router>
   );
 }
