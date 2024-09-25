@@ -1,14 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import KiddixiaUI from './kid_ui'; // Ensure the correct filename is used
+import KiddixiaUI from './components/KiddixiaUI';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<KiddixiaUI />} />
-      </Routes>
-    </Router>
+    <div className="App">
+      <KiddixiaUI />
+    </div>
   );
 }
 
