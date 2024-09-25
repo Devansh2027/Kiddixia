@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.js",
+      "src": "index.html",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "build"
@@ -10,6 +10,14 @@
     }
   ],
   "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/child",
+      "dest": "/kid_ui.js"
+    },
     {
       "src": "/(.*)",
       "dest": "/index.html"
