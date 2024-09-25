@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiddixia - Fun Learning for Kids</title>
+  <style>body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #4a90e2;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.cta-button {
+    background: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #e65c50;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: #333;
+    color: white;
+    transition: right 0.3s;
+    z-index: 1000;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar nav a {
+    color: white;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.sidebar .close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.hero {
+    padding: 60px 20px;
+    text-align: center;
+    background: url('hero-background.jpg') no-repeat center center/cover;
+/*     color: white; */
+}
+
+h2 {
+    color: #4a90e2;
+}
+
+section {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.feature {
+    margin-bottom: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #ddd;
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">Kiddixia</div>
+        <div class="nav">
+            <a href="#signup" class="cta-button">Sign Up</a>
+            <button class="hamburger" id="hamburger">&#9776;</button>
+        </div>
+    </header>
+    
+    <div class="sidebar" id="sidebar">
+        <nav>
+            <a href="#parent-login">Parent Login</a>
+            <a href="#child-login">Child Login</a>
+            <button class="close" id="close-sidebar">&times;</button>
+        </nav>
+    </div>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to Kiddixia</h1>
+            <p>Engaging games, interactive books, and a rewarding learning experience for kids!</p>
+            <a href="#signup" class="cta-button">Get Started</a>
+        </section>
+
+        <section id="features">
+            <h2>Features</h2>
+            <div class="feature">
+                <h3>Interactive Games</h3>
+                <p>Explore a variety of educational games designed to enhance learning through play.</p>
+            </div>
+            <div class="feature">
+                <h3>Engaging Books</h3>
+                <p>Dive into a world of stories that inspire creativity and imagination.</p>
+            </div>
+            <div class="feature">
+                <h3>Reward System</h3>
+                <p>Earn rewards for every achievement to motivate learning and exploration.</p>
+            </div>
+        </section>
+
+        <section id="signup">
+            <h2>Join Us Today!</h2>
+            <p>Sign up to get access to all the fun and learning.</p>
+          
+                <button type="submit" class="cta-button">Sign Up</button>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Kiddixia. All Rights Reserved.</p>
+    </footer>
+
+    <script >const hamburger = document.getElementById('hamburger');
+const sidebar = document.getElementById('sidebar');
+const closeSidebar = document.getElementById('close-sidebar');
+
+hamburger.addEventListener('click', () => {
+    sidebar.style.right = '0';
+});
+
+closeSidebar.addEventListener('click', () => {
+    sidebar.style.right = '-250px';
+});
+</script>
+</body>
+</html>
