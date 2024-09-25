@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiddixia UI</title>
+   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(to bottom, #bfdbfe, #e9d5ff);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #9333ea;
+        }
+        .grid {
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .app-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .app-icon:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        .app-icon span {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #374151;
+            margin-top: 0.25rem;
+        }
+        footer {
+            background-color: white;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+            padding: 1rem;
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .footer-icons {
+            display: flex;
+            justify-content: space-around;
+        }
+        .section {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .section h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #9333ea;
+            margin-bottom: 2rem;
+        }
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .section-button {
+            width: 10rem;
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            color: white;
+            font-weight: bold;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .section-button:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+        .section-button span {
+            margin-top: 0.5rem;
+            font-size: 1.25rem;
+            text-align: center;
+        }
+        .close-button {
+            margin-top: 2rem;
+            background-color: #ef4444;
+            color: white;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .close-button:hover {
+            background-color: #dc2626;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="container">
+        <header>
+            <h1>Kiddixia</h1>
+        </header>
+        
+        <div id="main-section">
+            <div class="grid">
+                <div class="app-icon" onclick="navigateTo('learn')">
+                    <i data-lucide="book" color="#10b981"></i>
+                    <span>Learn</span>
+                </div>
+                <div class="app-icon" onclick="navigateTo('games')">
+                    <i data-lucide="gamepad" color="#3b82f6"></i>
+                    <span>Games</span>
+                </div>
+                <div class="app-icon">
+                    <i data-lucide="music" color="#8b5cf6"></i>
+                    <span>Music</span>
+                </div>
+                <div class="app-icon">
+                    <i data-lucide="camera" color="#ef4444"></i>
+                    <span>Camera</span>
+                </div>
+                <div class="app-icon">
+                    <i data-lucide="calculator" color="#6366f1"></i>
+                    <span>Math</span>
+                </div>
+                <div class="app-icon">
+                    <i data-lucide="book-open" color="#f59e0b"></i>
+                    <span>Library</span>
+                </div>
+                <div class="app-icon">
+                    <i data-lucide="headphones" color="#ec4899"></i>
+                    <span>Audiobooks</span>
+                </div>
+                <div class="app-icon">
+                    <i data-lucide="settings" color="#64748b"></i>
+                    <span>Settings</span>
+                </div>
+            </div>
+            
+            <footer>
+                <div class="footer-icons">
+                    <div class="app-icon" onclick="navigateTo('learn')">
+                        <i data-lucide="book" size="32" color="#10b981"></i>
+                        <span>Learn</span>
+                    </div>
+                    <div class="app-icon" onclick="navigateTo('games')">
+                        <i data-lucide="gamepad" size="32" color="#3b82f6"></i>
+                        <span>Play</span>
+                    </div>
+                    <div class="app-icon">
+                        <i data-lucide="book-open" size="32" color="#f59e0b"></i>
+                        <span>Read</span>
+                    </div>
+                    <div class="app-icon">
+                        <i data-lucide="headphones" size="32" color="#ec4899"></i>
+                        <span>Listen</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div id="games-section" class="section hidden">
+            <h2>Choose a Game!</h2>
+            <div class="section-grid">
+                <div class="section-button" style="background-color: #4ade80;">
+                    <i data-lucide="shuffle" size="48"></i>
+                    <span>Snake and Ladder</span>
+                </div>
+                <div class="section-button" style="background-color: #facc15;">
+                    <i data-lucide="search" size="48"></i>
+                    <span>Find the Person</span>
+                </div>
+                <div class="section-button" style="background-color: #f472b6;">
+                    <i data-lucide="gamepad" size="48"></i>
+                    <span>Puzzle</span>
+                </div>
+                <div class="section-button" style="background-color: #60a5fa;">
+                    <i data-lucide="book-open" size="48"></i>
+                    <span>Memory</span>
+                </div>
+            </div>
+            <div class="close-button" onclick="navigateTo('main')">
+                <i data-lucide="x" size="24"></i>
+                Close
+            </div>
+        </div>
+
+        <div id="learn-section" class="section hidden">
+            <h2>What do you want to learn?</h2>
+            <div class="section-grid">
+                <div class="section-button" style="background-color: #60a5fa;" onclick="startLesson('math')">
+                    <i data-lucide="calculator" size="48"></i>
+                    <span>Math</span>
+                </div>
+                <div class="section-button" style="background-color: #4ade80;" onclick="startLesson('english')">
+                    <i data-lucide="pen-tool" size="48"></i>
+                    <span>English</span>
+                </div>
+                <div class="section-button" style="background-color: #facc15;" onclick="startLesson('history')">
+                    <i data-lucide="clock" size="48"></i>
+                    <span>History</span>
+                </div>
+                <div class="section-button" style="background-color: #f472b6;" onclick="startLesson('geography')">
+                    <i data-lucide="globe" size="48"></i>
+                    <span>Geography</span>
+                </div>
+            </div>
+            <div class="close-button" onclick="navigateTo('main')">
+                <i data-lucide="x" size="24"></i>
+                Close
+            </div>
+        </div>
+
+        <div id="lesson-screen" class="section hidden">
+            <h2 id="lesson-title"></h2>
+            <div id="lesson-content" class="text-xl mb-8 text-center"></div>
+            <div class="close-button" onclick="closeLesson()">
+                <i data-lucide="x" size="24"></i>
+                Close
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const sections = ['main', 'games', 'learn'];
+        let currentSection = 'main';
+        let currentLesson = null;
+
+        const lessonContent = {
+            math: {
+                title: "Math Lesson",
+                content: "Let's learn about addition and subtraction!",
+            },
+            english: {
+                title: "English Lesson",
+                content: "Today we'll explore the alphabet and simple words.",
+            },
+            history: {
+                title: "History Lesson",
+                content: "Discover ancient civilizations and their fascinating stories.",
+            },
+            geography: {
+                title: "Geography Lesson",
+                content: "Let's explore continents, countries, and natural wonders!",
+            },
+        };
+
+        function navigateTo(section) {
+            sections.forEach(s => {
+                document.getElementById(`${s}-section`).classList.add('hidden');
+            });
+            document.getElementById(`${section}-section`).classList.remove('hidden');
+            currentSection = section;
+            currentLesson = null;
+        }
+
+        function startLesson(lesson) {
+            currentLesson = lesson;
+            const { title, content } = lessonContent[lesson];
+            document.getElementById('lesson-title').textContent = title;
+            document.getElementById('lesson-content').textContent = content;
+            document.getElementById('learn-section').classList.add('hidden');
+            document.getElementById('lesson-screen').classList.remove('hidden');
+        }
+
+        function closeLesson() {
+            document.getElementById('lesson-screen').classList.add('hidden');
+            document.getElementById('learn-section').classList.remove('hidden');
+            currentLesson = null;
+        }
+    </script>
+</body>
+</html>
