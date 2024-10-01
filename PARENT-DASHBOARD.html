@@ -80,6 +80,21 @@
             padding: 5px;
             margin-right: 10px;
         }
+        /* Animation Styles */
+        #successMessage {
+            display: none;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            margin-top: 10px;
+            animation: fadeInOut 2s;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -111,6 +126,7 @@
             <h2>Coin Redemption</h2>
             <p><strong>Coins available:</strong> <span id="coinBalance"></span></p>
             <div id="toyShop"></div>
+            <div id="successMessage">Toy redeemed successfully!</div>
         </div>
     </div>
 
@@ -230,10 +246,19 @@
             if (coins >= cost) {
                 coins -= cost;
                 updateCoinBalance();
-                alert("Toy redeemed successfully!");
+                showSuccessMessage();
             } else {
                 alert("Not enough coins!");
             }
+        }
+
+        // Show success message
+        function showSuccessMessage() {
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 2000);
         }
 
         // Initial render of tasks
