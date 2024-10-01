@@ -32,15 +32,25 @@
             flex-grow: 1;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 9rem;
-            margin-bottom: 15rem;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
-        .app-icon {
+        .app-icon-header {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 0.5rem;
+            padding: 6rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .app-icon-footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
             border-radius: 0.75rem;
             cursor: pointer;
             transition: all 0.2s;
@@ -52,7 +62,7 @@
             font-size: 0.75rem;
             font-weight: 500;
             color: #374151;
-            margin-top: 0.25rem;
+            margin-top: 0.5rem;
         }
         footer {
             background-color: white;
@@ -135,35 +145,36 @@
         
         <div id="main-section">
             <div class="grid">
-                <div class="app-icon" onclick="navigateTo('learn')">
+                <div class="app-icon-header" onclick="navigateTo('learn')">
                 <i data-lucide="book" style="color: #10b981;"></i>
                 <span>Learn</span>
             </div>
-            <div class="app-icon" onclick="navigateTo('games')">
+            <div class="app-icon-header" onclick="navigateTo('games')">
                 <i data-lucide="gamepad-2" style="color: #3b82f6;"></i>
                 <span>Games</span>
             </div>
-            <div class="app-icon"onclick="navigateTo('audiobook')">
+            <div class="app-icon-header"onclick="navigateTo('audiobook')">
                 <i data-lucide="headphones" style="color: #ec4899;"></i>
                 <span>Audiobooks</span>
             </div>
-            <div class="app-icon"onclick="navigateTo('emergency')">
+            <div class="app-icon-header"onclick="navigateTo('emergency')">
                 <i data-lucide="siren" style="color: #ef4444;"></i>
                 <span>Emergency</span>
             </div>
-            <div class="app-icon"onclick="navigateTo('games')">
+            
+            <div class="app-icon-header"onclick="navigateTo('games')">
                 <i data-lucide="calculator" style="color: #6366f1;"></i>
                 <span>Math</span>
             </div>
-            <div class="app-icon"onclick="navigateTo('story')">
+            <div class="app-icon-header"onclick="navigateTo('story')">
                 <i data-lucide="book-open" style="color: #f59e0b;"></i>
                 <span>Story Book's</span>
             </div>
-            <div class="app-icon"onclick="navigateTo('games')">
+            <div class="app-icon-header"onclick="navigateTo('games')">
                 <i data-lucide="list" style="color: #8b5cf6;"></i>
                 <span>Today's TASK</span>
             </div>
-            <div class="app-icon"onclick="navigateTo('games')">
+            <div class="app-icon-header"onclick="navigateTo('games')">
                 <i data-lucide="settings" style="color: #64748b;"></i>
                 <span>Settings</span>
             </div>
@@ -171,23 +182,23 @@
             
             <footer>
                 <div class="footer-icons">
-                <div class="app-icon"onclick="navigateTo('learn')">
+                <div class="app-icon-footer"onclick="navigateTo('learn')">
                     <i data-lucide="book" style="color: #10b981;"></i>
                     <span>Learn</span>
                 </div>
-                <div class="app-icon"onclick="navigateTo('games')">
+                <div class="app-icon-footer"onclick="navigateTo('games')">
                     <i data-lucide="gamepad-2" style="color: #3b82f6;"></i>
                     <span>Play</span>
                 </div>
-                <div class="app-icon"onclick="navigateTo('games')">
+                <div class="app-icon-footer"onclick="navigateTo('games')">
                     <i data-lucide="home" style="color: #ec4899;"></i>
                     <span>Home</span>
                 </div>
-                <div class="app-icon"onclick="navigateTo('games')">
+                <div class="app-icon-footer"onclick="navigateTo('games')">
                     <i data-lucide="book-open" style="color: #f59e0b;"></i>
                     <span>Read</span>
                 </div>
-                <div class="app-icon"onclick="navigateTo('emergency')">
+                <div class="app-icon-footer"onclick="navigateTo('emergency')">
                 <i data-lucide="siren" style="color: #ef4444;"></i>
                 <span>Emergency</span>
             </div>
