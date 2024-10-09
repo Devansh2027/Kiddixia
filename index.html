@@ -120,15 +120,15 @@ footer {
     <header>
         <div class="logo">Kiddixia</div>
         <div class="nav">
-            <a href="#signup" class="cta-button">Sign Up</a>
+            <a href="/signup" class="cta-button">Sign Up</a>
             <button class="hamburger" id="hamburger">&#9776;</button>
         </div>
     </header>
     
     <div class="sidebar" id="sidebar">
         <nav>
-            <a href="#parent-login">Parent Login</a>
-            <a href="#child-login">Child Login</a>
+            <a href="/login">Parent Login</a>
+            <a href="/login">Child Login</a>
             <button class="close" id="close-sidebar">&times;</button>
         </nav>
     </div>
@@ -160,7 +160,7 @@ footer {
             <h2>Join Us Today!</h2>
             <p>Sign up to get access to all the fun and learning.</p>
           
-                <button type="submit" class="cta-button">Sign Up</button>
+               <a href="/signup"> <button type="submit" class="cta-button"> Sign Up</button></a>
             
         </section>
     </main>
@@ -169,7 +169,8 @@ footer {
         <p>&copy; 2024 Kiddixia. All Rights Reserved.</p>
     </footer>
 
-    <script >const hamburger = document.getElementById('hamburger');
+    <script >
+const hamburger = document.getElementById('hamburger');
 const sidebar = document.getElementById('sidebar');
 const closeSidebar = document.getElementById('close-sidebar');
 
