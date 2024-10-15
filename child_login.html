@@ -18,13 +18,14 @@
         Welcome Back
       </h2>
       <p class="mt-4 text-center text-gray-400">Sign in to continue</p>
-      <form class="mt-8 space-y-6">
+      <form method="POST" action="#" class="mt-8 space-y-6">
         <div class="rounded-md shadow-sm">
           <div>
             <label class="sr-only" for="email">Email address</label>
             <input
               placeholder="Email address"
               class="appearance-none relative block w-full px-3 py-3 border border-gray-700 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              required=""
               autocomplete="email"
               type="email"
               name="email"
@@ -36,6 +37,7 @@
             <input
               placeholder="Password"
               class="appearance-none relative block w-full px-3 py-3 border border-gray-700 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              required=""
               autocomplete="current-password"
               type="password"
               name="password"
@@ -65,10 +67,10 @@
         </div>
 
         <div>
-        <a herf='./child_uiv2'>  <button class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-gray-900 bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            type="submit"  >
-            Sign In
-          </button> </a>
+         <a href="./child_uiv2" <button class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-gray-900 bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            type="submit" >
+            Sign In</a>
+          </button>
         </div>
       </form>
     </div>
