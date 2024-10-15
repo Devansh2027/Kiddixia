@@ -4,435 +4,317 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiddixia UI</title>
-   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            height: 100vh;
-            width: 100%;
-            background: linear-gradient(to bottom, #bfdbfe, #e9d5ff);
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-        h1 {
-            font-size: 1.875rem;
-            font-weight: bold;
-            color: #9333ea;
-        }
-        .grid {
-            flex-grow: 1;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-bottom: 7rem;
-        }
-        .app-icon-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 6rem;
-            border-radius: 0.75rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .app-icon-footer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            border-radius: 0.75rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .app-icon:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-        .app-icon span {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: #374151;
-            margin-top: 0.5rem;
-        }
-        footer {
-            align-items: bottom;
-            background-color: white;
-            border-top-left-radius: 1.5rem;
-            border-top-right-radius: 1.5rem;
-            padding: 1rem;
-            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .footer-icons {
-            display: flex;
-            justify-content: space-around;
-        }
-        .section {
-            position: absolute;
-            inset: 0;
-            background-color: rgba(255, 255, 255, 0.9);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .section h2 {
-            font-size: 1.875rem;
-            font-weight: bold;
-            color: #9333ea;
-            margin-bottom: 2rem;
-        }
-        .section-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-        .section-button {
-            width: 10rem;
-            height: 10rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            color: white;
-            font-weight: bold;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-        .section-button:hover {
-            opacity: 0.9;
-            transform: scale(1.05);
-        }
-        .section-button span {
-            margin-top: 0.5rem;
-            font-size: 1.25rem;
-            text-align: center;
-        }
-        .close-button {
-            margin-top: 2rem;
-            background-color: #ef4444;
-            color: white;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        .close-button:hover {
-            background-color: #dc2626;
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div id="app" class="container">
-        <header>
-            <h1>Kiddixia</h1>
-        </header>
-        
-        <div id="main-section">
-            <div class="grid">
-                <div class="app-icon-header" onclick="navigateTo('learn')">
-                <i data-lucide="book" style="color: #10b981;"></i>
-                <span>Learn</span>
-            </div>
-            <div class="app-icon-header" onclick="navigateTo('games')">
-                <i data-lucide="gamepad-2" style="color: #3b82f6;"></i>
-                <span>Games</span>
-            </div>
-            <div class="app-icon-header"onclick="navigateTo('audiobook')">
-                <i data-lucide="headphones" style="color: #ec4899;"></i>
-                <span>Audiobooks</span>
-            </div>
-            <div class="app-icon-header"onclick="navigateTo('emergency')">
-                <i data-lucide="siren" style="color: #ef4444;"></i>
-                <span>Emergency</span>
-            </div>
-            
-            <div class="app-icon-header"onclick="navigateTo('games')">
-                <i data-lucide="calculator" style="color: #6366f1;"></i>
-                <span>Math</span>
-            </div>
-            <div class="app-icon-header"onclick="navigateTo('story')">
-                <i data-lucide="book-open" style="color: #f59e0b;"></i>
-                <span>Story Book's</span>
-            </div>
-            <div class="app-icon-header"onclick="navigateTo('games')">
-                <i data-lucide="list" style="color: #8b5cf6;"></i>
-                <span>Today's TASK</span>
-            </div>
-            <div class="app-icon-header"onclick="navigateTo('games')">
-                <i data-lucide="settings" style="color: #64748b;"></i>
-                <span>Settings</span>
-            </div>
-            </div>
-            
-            <footer>
-                <div class="footer-icons">
-                <div class="app-icon-footer"onclick="navigateTo('learn')">
-                    <i data-lucide="book" style="color: #10b981;"></i>
-                    <span>Learn</span>
-                </div>
-                <div class="app-icon-footer"onclick="navigateTo('games')">
-                    <i data-lucide="gamepad-2" style="color: #3b82f6;"></i>
-                    <span>Play</span>
-                </div>
-                <div class="app-icon-footer"onclick="navigateTo('games')">
-                    <i data-lucide="home" style="color: #ec4899;"></i>
-                    <span>Home</span>
-                </div>
-                <div class="app-icon-footer"onclick="navigateTo('games')">
-                    <i data-lucide="book-open" style="color: #f59e0b;"></i>
-                    <span>Read</span>
-                </div>
-                <div class="app-icon-footer"onclick="navigateTo('emergency')">
-                <i data-lucide="siren" style="color: #ef4444;"></i>
-                <span>Emergency</span>
-            </div>
-            </div>
-            </footer>
-        </div>
+<body class="bg-gradient-to-b from-blue-200 via-purple-200 to-purple-100 min-h-screen flex flex-col">
 
-        <div id="games-section" class="section hidden">
-            <h2>Choose a Game!</h2>
-            <div class="section-grid">
-                <div class="section-button" style="background-color: #4ade80;">
-                    <i data-lucide="shuffle" size="48"></i>
-                    <span>Snake and Ladder</span>
-                </div>
-                <div class="section-button" style="background-color: #facc15;">
-                    <i data-lucide="search" size="48"></i>
-                    <span>Find the Person</span>
-                </div>
-                <div class="section-button" style="background-color: #f472b6;">
-                    <i data-lucide="gamepad" size="48"></i>
-                    <span>Puzzle</span>
-                </div>
-                <div class="section-button" style="background-color: #60a5fa;">
-                    <i data-lucide="book-open" size="48"></i>
-                    <span>Memory</span>
-                </div>
+    <header class="text-center p-4">
+        <h1 class="text-3xl font-bold text-purple-600">Kiddixia</h1>
+    </header>
+
+    <div id="main-section" class="flex-grow">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 px-4 mb-20">
+            <!-- Learn -->
+            <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md cursor-pointer hover:bg-gray-100 transition" onclick="navigateTo('learn')">
+                <i data-lucide="book" class="text-green-500" style="width: 48px; height: 48px;"></i>
+                <span class="mt-2 text-sm font-semibold text-gray-700">Learn</span>
             </div>
-            <div class="close-button" onclick="navigateTo('main')">
-                <i data-lucide="x" size="24"></i>
-                Close
+            <!-- Games -->
+            <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md cursor-pointer hover:bg-gray-100 transition" onclick="navigateTo('games')">
+                <i data-lucide="gamepad-2" class="text-blue-500" style="width: 48px; height: 48px;"></i>
+                <span class="mt-2 text-sm font-semibold text-gray-700">Games</span>
             </div>
-        </div>
-       <div id="story-section" class="section hidden">
-            <h2>Choose a story book</h2>
-            <div class="section-grid">
-                <div class="section-button" style="background-color: #4ade80;">
-                    <i data-lucide="book" size="48"></i>
-                    <span></span>
-                </div>
-                <div class="section-button" style="background-color: #facc15;">
-                    <i data-lucide="book" size="48"></i>
-                    <span></span>
-                </div>
-                <div class="section-button" style="background-color: #f472b6;">
-                    <i data-lucide="book" size="48"></i>
-                    <span></span>
-                </div>
-                <div class="section-button" style="background-color: #60a5fa;">
-                    <i data-lucide="book" size="48"></i>
-                    <span></span>
-                </div>
+            <!-- Audiobooks -->
+            <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md cursor-pointer hover:bg-gray-100 transition" onclick="navigateTo('audiobook')">
+                <i data-lucide="headphones" class="text-pink-500" style="width: 48px; height: 48px;"></i>
+                <span class="mt-2 text-sm font-semibold text-gray-700">Audiobooks</span>
             </div>
-            <div class="close-button" onclick="navigateTo('main')">
-                <i data-lucide="x" size="24"></i>
-                Close
+            <!-- Emergency -->
+            <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md cursor-pointer hover:bg-gray-100 transition" onclick="navigateTo('emergency')">
+                <i data-lucide="siren" class="text-red-500" style="width: 48px; height: 48px;"></i>
+                <span class="mt-2 text-sm font-semibold text-gray-700">Emergency</span>
             </div>
-        </div>
-        <div id="audiobook-section" class="section hidden">
-            <h2>Choose a audio book</h2>
-            <div class="section-grid">
-                <div class="section-button" style="background-color: #4ade80;">
-                    <i data-lucide="shuffle" size="48"></i>
-                    <span></span>
-                </div>
-                <div class="section-button" style="background-color: #facc15;">
-                    <i data-lucide="search" size="48"></i>
-                    <span></span>
-                </div>
-                <div class="section-button" style="background-color: #f472b6;">
-                    <i data-lucide="gamepad" size="48"></i>
-                    <span></span>
-                </div>
-                <div class="section-button" style="background-color: #60a5fa;">
-                    <i data-lucide="book-open" size="48"></i>
-                    <span></span>
-                </div>
+            <!-- Math -->
+            <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md cursor-pointer hover:bg-gray-100 transition" onclick="navigateTo('math')">
+                <i data-lucide="calculator" class="text-indigo-500" style="width: 48px; height: 48px;"></i>
+                <span class="mt-2 text-sm font-semibold text-gray-700">Math</span>
             </div>
-            <div class="close-button" onclick="navigateTo('main')">
-                <i data-lucide="x" size="24"></i>
-                Close
+            <!-- Story Books -->
+            <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md cursor-pointer hover:bg-gray-100 transition" onclick="navigateTo('story')">
+                <i data-lucide="book-open" class="text-yellow-500" style="width: 48px; height: 48px;"></i>
+                <span class="mt-2 text-sm font-semibold text-gray-700">Story Books</span>
             </div>
-        </div>
-        <div id="emergency-section" class="section hidden">
-            <h2>whoom do you want to call</h2>
-            <div class="section-grid">
-                <div class="section-button" style="background-color: #4ade80;">
-                    <i data-lucide="phone" size="48"></i>
-                    <span>call mother</span>
-                </div>
-                <div class="section-button" style="background-color: #facc15;">
-                    <i data-lucide="phone" size="48"></i>
-                    <span>call father</span>
-                </div>
+            <!-- Tasks -->
+            <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md cursor-pointer hover:bg-gray-100 transition" onclick="navigateTo('task')">
+                <i data-lucide="list" class="text-purple-500" style="width: 48px; height: 48px;"></i>
+                <span class="mt-2 text-sm font-semibold text-gray-700">Today's Task</span>
             </div>
-            <div class="close-button" onclick="navigateTo('main')">
-                <i data-lucide="x" size="24"></i>
-                Close
-            </div>
-        </div>
-        <div id="math-section" class="section hidden">
-            <h2>Choose a story book</h2>
-            <div class="section-grid">
-                <div class="section-button" style="background-color: #4ade80;">
-                    <i data-lucide="shuffle" size="48"></i>
-                    <span></span>
-                </div>
-                <div class="section-button" style="background-color: #facc15;">
-                    <i data-lucide="search" size="48"></i>
-                    <span></span>
-                </div>
-                <div class="section-button" style="background-color: #f472b6;">
-                    <i data-lucide="gamepad" size="48"></i>
-                    <span></span>
-                </div>
-                <div class="section-button" style="background-color: #60a5fa;">
-                    <i data-lucide="book-open" size="48"></i>
-                    <span></span>
-                </div>
-            </div>
-            <div class="close-button" onclick="navigateTo('main')">
-                <i data-lucide="x" size="24"></i>
-                Close
-            </div>
-        </div>
-        <div id="task-section" class="section hidden">
-            <h2>Choose a story book</h2>
-            <div class="section-grid">
-                <div class="section-button" style="background-color: #4ade80;">
-                    <i data-lucide="shuffle" size="48"></i>
-                    <span></span>
-                </div>
-                <div class="section-button" style="background-color: #facc15;">
-                    <i data-lucide="search" size="48"></i>
-                    <span></span>
-                </div>
-                <div class="section-button" style="background-color: #f472b6;">
-                    <i data-lucide="gamepad" size="48"></i>
-                    <span></span>
-                </div>
-                <div class="section-button" style="background-color: #60a5fa;">
-                    <i data-lucide="book-open" size="48"></i>
-                    <span></span>
-                </div>
-            </div>
-            <div class="close-button" onclick="navigateTo('main')">
-                <i data-lucide="x" size="24"></i>
-                Close
-            </div>
-        </div>
-        <div id="learn-section" class="section hidden">
-            <h2>What do you want to learn?</h2>
-            <div class="section-grid">
-                <div class="section-button" style="background-color: #60a5fa;" onclick="startLesson('math')">
-                    <i data-lucide="calculator" size="48"></i>
-                    <span>Math</span>
-                </div>
-                <div class="section-button" style="background-color: #4ade80;" onclick="startLesson('english')">
-                    <i data-lucide="pen-tool" size="48"></i>
-                    <span>English</span>
-                </div>
-                <div class="section-button" style="background-color: #facc15;" onclick="startLesson('history')">
-                    <i data-lucide="clock" size="48"></i>
-                    <span>History</span>
-                </div>
-                <div class="section-button" style="background-color: #f472b6;" onclick="startLesson('geography')">
-                    <i data-lucide="globe" size="48"></i>
-                    <span>Geography</span>
-                </div>
-            </div>
-            <div class="close-button" onclick="navigateTo('main')">
-                <i data-lucide="x" size="24"></i>
-                Close
+            <!-- Settings -->
+            <div class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md cursor-pointer hover:bg-gray-100 transition" onclick="navigateTo('settings')">
+                <i data-lucide="settings" class="text-gray-500" style="width: 48px; height: 48px;"></i>
+                <span class="mt-2 text-sm font-semibold text-gray-700">Settings</span>
             </div>
         </div>
 
-        <div id="lesson-screen" class="section hidden">
-            <h2 id="lesson-title"></h2>
-            <div id="lesson-content" class="text-xl mb-8 text-center"></div>
-            <div class="close-button" onclick="closeLesson()">
-                <i data-lucide="x" size="24"></i>
-                Close
+        <footer class="fixed bottom-0 left-0 w-full bg-white p-4 shadow-lg rounded-t-3xl flex justify-around">
+            <div class="app-icon-footer flex flex-col items-center cursor-pointer" onclick="navigateTo('learn')">
+                <i data-lucide="book" class="text-green-500"></i>
+                <span class="text-xs text-gray-600">Learn</span>
             </div>
+            <div class="app-icon-footer flex flex-col items-center cursor-pointer" onclick="navigateTo('games')">
+                <i data-lucide="gamepad-2" class="text-blue-500"></i>
+                <span class="text-xs text-gray-600">Play</span>
+            </div>
+            <div class="app-icon-footer flex flex-col items-center cursor-pointer" onclick="navigateTo('main')">
+                <i data-lucide="home" class="text-pink-500"></i>
+                <span class="text-xs text-gray-600">Home</span>
+            </div>
+            <div class="app-icon-footer flex flex-col items-center cursor-pointer" onclick="navigateTo('story')">
+                <i data-lucide="book-open" class="text-yellow-500"></i>
+                <span class="text-xs text-gray-600">Read</span>
+            </div>
+            <div class="app-icon-footer flex flex-col items-center cursor-pointer" onclick="navigateTo('emergency')">
+                <i data-lucide="siren" class="text-red-500"></i>
+                <span class="text-xs text-gray-600">Emergency</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Games Section -->
+    <div id="games-section" class="hidden fixed inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
+        <h2 class="text-3xl font-bold text-purple-600 mb-8">Choose a Game!</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-green-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="shuffle" style="width: 48px;"></i>
+                <span class="mt-2">Snake and Ladder</span>
+            </div>
+            <div class="bg-yellow-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="search" style="width: 48px;"></i>
+                <span class="mt-2">Find the Person</span>
+            </div>
+            <div class="bg-pink-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="gamepad" style="width: 48px;"></i>
+                <span class="mt-2">Puzzle</span>
+            </div>
+            <div class="bg-blue-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="rotate-cw" style="width: 48px;"></i>
+                <span class="mt-2">Memory</span>
+            </div>
+        </div>
+        <div class="mt-8 bg-red-500 text-white font-bold px-4 py-2 rounded-full cursor-pointer flex items-center" onclick="navigateTo('main')">
+            <i data-lucide="x" class="mr-2"></i> Close
+        </div>
+    </div>
+
+    <!-- Learn Section -->
+    <div id="learn-section" class="hidden fixed inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
+        <h2 class="text-3xl font-bold text-purple-600 mb-8">What do you want to learn?</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-blue-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="percent" style="width: 48px;"></i>
+                <span class="mt-2">Math</span>
+            </div>
+            <div class="bg-green-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="edit-3" style="width: 48px;"></i>
+                <span class="mt-2">English</span>
+            </div>
+            <div class="bg-yellow-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="clock" style="width: 48px;"></i>
+                <span class="mt-2">History</span>
+            </div>
+            <div class="bg-pink-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="globe" style="width: 48px;"></i>
+                <span class="mt-2">Geography</span>
+            </div>
+        </div>
+        <div class="mt-8 bg-red-500 text-white font-bold px-4 py-2 rounded-full cursor-pointer flex items-center" onclick="navigateTo('main')">
+            <i data-lucide="x" class="mr-2"></i> Close
+        </div>
+    </div>
+
+    <!-- Story Section -->
+    <div id="story-section" class="hidden fixed inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
+        <h2 class="text-3xl font-bold text-purple-600 mb-8">Choose a Story Book</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-green-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="book" style="width: 48px;"></i>
+                <span class="mt-2">Fairy Tales</span>
+            </div>
+            <div class="bg-yellow-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="book" style="width: 48px;"></i>
+                <span class="mt-2">Adventure</span>
+            </div>
+            <div class="bg-pink-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="book" style="width: 48px;"></i>
+                <span class="mt-2">Mystery</span>
+            </div>
+            <div class="bg-blue-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="book" style="width: 48px;"></i>
+                <span class="mt-2">Science Fiction</span>
+            </div>
+        </div>
+        <div class="mt-8 bg-red-500 text-white font-bold px-4 py-2 rounded-full cursor-pointer flex items-center" onclick="navigateTo('main')">
+            <i data-lucide="x" class="mr-2"></i> Close
+        </div>
+    </div>
+
+    <!-- Audiobook Section -->
+    <div id="audiobook-section" class="hidden fixed inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
+        <h2 class="text-3xl font-bold text-purple-600 mb-8">Choose an Audiobook</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-green-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="headphones" style="width: 48px;"></i>
+                <span class="mt-2">Bedtime Stories</span>
+            </div>
+            <div class="bg-yellow-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="headphones" style="width: 48px;"></i>
+                <span class="mt-2">Educational</span>
+            </div>
+            <div class="bg-pink-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="headphones" style="width: 48px;"></i>
+                <span class="mt-2">Fun Facts</span>
+            </div>
+            <div class="bg-blue-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="headphones" style="width: 48px;"></i>
+                <span class="mt-2">Music & Rhymes</span>
+            </div>
+        </div>
+        <div class="mt-8 bg-red-500 text-white font-bold px-4 py-2 rounded-full cursor-pointer flex items-center" onclick="navigateTo('main')">
+            <i data-lucide="x" class="mr-2"></i> Close
+        </div>
+    </div>
+
+   <!-- Emergency Section (continued) -->
+    <div id="emergency-section" class="hidden fixed inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
+        <h2 class="text-3xl font-bold text-purple-600 mb-8">Emergency Contacts</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-green-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="phone" style="width: 48px;"></i>
+                <span class="mt-2">Call Mother</span>
+            </div>
+            <div class="bg-blue-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="phone" style="width: 48px;"></i>
+                <span class="mt-2">Call Father</span>
+            </div>
+            <div class="bg-red-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="phone" style="width: 48px;"></i>
+                <span class="mt-2">Call Emergency Services</span>
+            </div>
+            <div class="bg-yellow-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="message-circle" style="width: 48px;"></i>
+                <span class="mt-2">Send SOS Message</span>
+            </div>
+        </div>
+        <div class="mt-8 bg-red-500 text-white font-bold px-4 py-2 rounded-full cursor-pointer flex items-center" onclick="navigateTo('main')">
+            <i data-lucide="x" class="mr-2"></i> Close
+        </div>
+    </div>
+
+    <!-- Math Section -->
+    <div id="math-section" class="hidden fixed inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
+        <h2 class="text-3xl font-bold text-purple-600 mb-8">Math Practice</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-green-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="plus" style="width: 48px;"></i>
+                <span class="mt-2">Addition</span>
+            </div>
+            <div class="bg-blue-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="minus" style="width: 48px;"></i>
+                <span class="mt-2">Subtraction</span>
+            </div>
+            <div class="bg-yellow-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="x" style="width: 48px;"></i>
+                <span class="mt-2">Multiplication</span>
+            </div>
+            <div class="bg-pink-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+                <i data-lucide="divide" style="width: 48px;"></i>
+                <span class="mt-2">Division</span>
+            </div>
+        </div>
+        <div class="mt-8 bg-red-500 text-white font-bold px-4 py-2 rounded-full cursor-pointer flex items-center" onclick="navigateTo('main')">
+            <i data-lucide="x" class="mr-2"></i> Close
+        </div>
+    </div>
+
+    <!-- Task Section -->
+    <div id="task-section" class="hidden fixed inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
+        <h2 class="text-3xl font-bold text-purple-600 mb-8">Today's Tasks</h2>
+        <div class="w-full max-w-md">
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div class="mb-4 flex items-center">
+                    <input class="mr-2 leading-tight" type="checkbox" id="task1">
+                    <label class="text-sm" for="task1">Complete Math homework</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input class="mr-2 leading-tight" type="checkbox" id="task2">
+                    <label class="text-sm" for="task2">Read a chapter of your book</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input class="mr-2 leading-tight" type="checkbox" id="task3">
+                    <label class="text-sm" for="task3">Practice piano for 30 minutes</label>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input class="mr-2 leading-tight" type="checkbox" id="task4">
+                    <label class="text-sm" for="task4">Help set the table for dinner</label>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 bg-red-500 text-white font-bold px-4 py-2 rounded-full cursor-pointer flex items-center" onclick="navigateTo('main')">
+            <i data-lucide="x" class="mr-2"></i> Close
+        </div>
+    </div>
+
+    <!-- Settings Section -->
+    <div id="settings-section" class="hidden fixed inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
+        <h2 class="text-3xl font-bold text-purple-600 mb-8">Settings</h2>
+        <div class="w-full max-w-md">
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                        Username
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="language">
+                        Language
+                    </label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="language">
+                        <option>English</option>
+                        <option>Spanish</option>
+                        <option>French</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="notifications">
+                        Notifications
+                    </label>
+                    <input class="mr-2 leading-tight" type="checkbox" id="notifications">
+                    <label class="text-sm" for="notifications">Enable notifications</label>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 bg-red-500 text-white font-bold px-4 py-2 rounded-full cursor-pointer flex items-center" onclick="navigateTo('main')">
+            <i data-lucide="x" class="mr-2"></i> Close
         </div>
     </div>
 
     <script>
+        // Initialize Lucide icons
         lucide.createIcons();
 
-        const sections = ['main', 'games', 'learn' ,'story','audiobook','emergency'];
-        let currentSection = 'main';
-        let currentLesson = null;
-
-        const lessonContent = {
-            math: {
-                title: "Math Lesson",
-                content: "Let's learn about addition and subtraction!",
-            },
-            english: {
-                title: "English Lesson",
-                content: "Today we'll explore the alphabet and simple words.",
-            },
-            history: {
-                title: "History Lesson",
-                content: "Discover ancient civilizations and their fascinating stories.",
-            },
-            geography: {
-                title: "Geography Lesson",
-                content: "Let's explore continents, countries, and natural wonders!",
-            },
-        };
-
+        // Navigation function
         function navigateTo(section) {
-            sections.forEach(s => {
-                document.getElementById(`${s}-section`).classList.add('hidden');
-            });
-            document.getElementById(`${section}-section`).classList.remove('hidden');
-            currentSection = section;
-            currentLesson = null;
-        }
-
-        function startLesson(lesson) {
-            currentLesson = lesson;
-            const { title, content } = lessonContent[lesson];
-            document.getElementById('lesson-title').textContent = title;
-            document.getElementById('lesson-content').textContent = content;
-            document.getElementById('learn-section').classList.add('hidden');
-            document.getElementById('lesson-screen').classList.remove('hidden');
-        }
-
-        function closeLesson() {
-            document.getElementById('lesson-screen').classList.add('hidden');
-            document.getElementById('learn-section').classList.remove('hidden');
-            currentLesson = null;
+            // Hide all sections
+            document.querySelectorAll('div[id$="-section"]').forEach(el => el.classList.add('hidden'));
+            
+            // Show the selected section
+            if (section === 'main') {
+                document.getElementById('main-section').classList.remove('hidden');
+            } else {
+                document.getElementById(`${section}-section`).classList.remove('hidden');
+            }
         }
     </script>
 </body>
