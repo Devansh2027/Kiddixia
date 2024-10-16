@@ -6,20 +6,25 @@
   outline: none;
 }
 
+* {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 body {
-  font-family: Helvetica, Arial;
   margin: 0;
   background-color: #ffeff0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 #app-cover {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  left: 0;
-  width: 430px;
-  height: 100px;
-  margin: -4px auto;
+  position: relative;
+  width: 90%;
+  max-width: 430px;
+  margin: 0 auto;
 }
 
 #bg-artwork {
@@ -50,15 +55,11 @@ body {
 
 #player {
   position: relative;
-  height: 100%;
   z-index: 3;
 }
 
 #player-track {
-  position: absolute;
-  top: 0;
-  right: 15px;
-  left: 15px;
+  position: relative;
   padding: 13px 22px 10px 184px;
   background-color: #fff7f7;
   border-radius: 15px 15px 0 0;
@@ -162,19 +163,22 @@ body {
 
 #player-content {
   position: relative;
-  height: 100%;
   background-color: #fff;
   box-shadow: 0 30px 80px #656565;
   border-radius: 15px;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 #album-art {
-  position: absolute;
+  position: relative;
   top: -40px;
   width: 115px;
   height: 115px;
-  margin-left: 40px;
+  margin-bottom: 20px;
   transform: rotateZ(0);
   transition: 0.3s ease all;
   box-shadow: 0 0 0 10px #fff;
@@ -224,12 +228,8 @@ body {
 }
 
 @keyframes rotateAlbumArt {
-  0% {
-    transform: rotateZ(0);
-  }
-  100% {
-    transform: rotateZ(360deg);
-  }
+  0% { transform: rotateZ(0); }
+  100% { transform: rotateZ(360deg); }
 }
 
 #buffer-box {
@@ -271,39 +271,34 @@ body {
 }
 
 #player-controls {
-  width: 250px;
-  height: 100%;
-  margin: 0 5px 0 141px;
-  float: right;
-  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .control {
-  width: 33.333%;
-  float: left;
-  padding: 12px 0;
+  flex: 1;
+  text-align: center;
 }
 
 .button {
-  width: 26px;
-  height: 26px;
-  padding: 25px;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
-  border-radius: 6px;
+  border-radius: 50%;
   cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.2s ease all;
 }
 
 .button i {
-  display: block;
   color: #d6dee7;
   font-size: 26px;
-  text-align: center;
-  line-height: 1;
-}
-
-.button,
-.button i {
-  transition: 0.2s ease all;
 }
 
 .button:hover {
@@ -313,7 +308,29 @@ body {
 .button:hover i {
   color: #fff;
 }
-</style>
+
+@media (max-width: 768px) {
+  #player-track {
+    padding: 13px 22px 10px 22px;
+  }
+
+  #album-art {
+    margin-top: -20px;
+  }
+
+  #player-controls {
+    margin-top: 10px;
+  }
+
+  .button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .button i {
+    font-size: 20px;
+  }
+}</style>
 <div id="app-cover">
   <div id="bg-artwork"></div>
   <div id="bg-layer"></div>
