@@ -192,31 +192,36 @@
         </div>
     </div>
 
-   <!-- Emergency Section (continued) -->
-    <div id="emergency-section" class="hidden fixed inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
-        <h2 class="text-3xl font-bold text-purple-600 mb-8">Emergency Contacts</h2>
-        <div class="grid grid-cols-2 gap-4">
-            <div class="bg-green-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
-                <i data-lucide="phone" style="width: 48px;"></i>
-                <span class="mt-2">Call Mother</span>
-            </div>
-            <div class="bg-blue-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
-                <i data-lucide="phone" style="width: 48px;"></i>
-                <span class="mt-2">Call Father</span>
-            </div>
-            <div class="bg-red-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
-                <i data-lucide="phone" style="width: 48px;"></i>
-                <span class="mt-2">Call Emergency Services</span>
-            </div>
-            <div class="bg-yellow-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
-                <i data-lucide="message-circle" style="width: 48px;"></i>
-                <span class="mt-2">Send SOS Message</span>
-            </div>
-        </div>
-        <div class="mt-8 bg-red-500 text-white font-bold px-4 py-2 rounded-full cursor-pointer flex items-center" onclick="navigateTo('main')">
-            <i data-lucide="x" class="mr-2"></i> Close
+<!-- Emergency Section (continued) -->
+<div id="emergency-section" class="hidden fixed inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
+    <h2 class="text-3xl font-bold text-purple-600 mb-8">Emergency Contacts</h2>
+    <div class="grid grid-cols-2 gap-4">
+        <!-- Call Mother -->
+        <a href="tel:+919325317847" class="bg-green-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+            <i data-lucide="phone" style="width: 48px;"></i>
+            <span class="mt-2">Call Mother</span>
+        </a>
+        <!-- Call Father -->
+        <a href="tel:+919967263303" class="bg-blue-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+            <i data-lucide="phone" style="width: 48px;"></i>
+            <span class="mt-2">Call Father</span>
+        </a>
+        <!-- Call Emergency Services -->
+        <a href="tel:+911" class="bg-red-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+            <i data-lucide="phone" style="width: 48px;"></i>
+            <span class="mt-2">Call Emergency Services</span>
+        </a>
+        <!-- Send SOS Message -->
+        <div class="bg-yellow-400 p-6 rounded-lg text-white font-bold flex flex-col items-center cursor-pointer">
+            <i data-lucide="message-circle" style="width: 48px;"></i>
+            <span class="mt-2">Send SOS Message</span>
         </div>
     </div>
+    <div class="mt-8 bg-red-500 text-white font-bold px-4 py-2 rounded-full cursor-pointer flex items-center" onclick="navigateTo('main')">
+        <i data-lucide="x" class="mr-2"></i> Close
+    </div>
+</div>
+
 
     <!-- Math Section -->
     <div id="math-section" class="hidden fixed inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center">
